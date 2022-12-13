@@ -255,7 +255,7 @@
 
 
                 <form action="../Routes/Medewerker.php?id=<?php echo $klanten['id']; ?>" method="POST">
-                  <button name="deleteKlant">Delete</button>
+                  <button  class="btn bg-gradient-primary" name="deleteKlant">Delete</button>
                 </form>
 
 
@@ -281,32 +281,35 @@
                       </div>
                       <div class="modal-body">
 
-                        <form action="" method="POST">
+                        <form action="/Routes/Medewerker.php?id=<?php echo $klanten['id']?>" method="POST">
                           <div class="mb-3">
-                            <input type="username" name="uid" class="form-control" placeholder="Gebruikersnaam"
-                              aria-label="username">
+                            <input type="voornaam" name="voornaam" class="form-control" value="<?php echo $klanten['voornaam']?>"
+                              aria-label="achternaam" >
                           </div>
                           <div class="mb-3">
-                            <input type="email" name="email" class="form-control" placeholder="Email"
-                              aria-label="email">
+                            <input type="achternaam" name="achternaam" class="form-control" placeholder="achternaam"
+                               value="<?php echo $klanten['achternaam']?>">
+                          </div>
+
+                          <div class="mb-3">
+                            <input type="pwd" name="adres" class="form-control" placeholder="adres" aria-label="role" value="<?php echo $klanten['adres']?>" >
                           </div>
                           <div class="mb-3">
-                            <input type="pwd" name="rol" class="form-control" placeholder="Telefoonnummer"
-                              aria-label="role">
+                            <input type="pwd" name="email" class="form-control" placeholder="email" aria-label="role" value="<?php echo $klanten['email']?>" >
                           </div>
                           <div class="mb-3">
-                            <input type="pwd" name="rol" class="form-control" placeholder="rol" aria-label="role">
+                            <input type="pwd" name="telefoonnummer" class="form-control" placeholder="telefoonnummer" aria-label="role" value="<?php echo $klanten['telefoonnummer']?>" > 
                           </div>
-              </form>
+              
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn bg-gradient-primary">Submit</button>
+                        <button  class="btn bg-gradient-primary" name="updateKlant">Submit</button>
                       </div>
                     </div>
                   </div>
                 </div>
-
+                </form>
               </td>
 
               <?php }?>
