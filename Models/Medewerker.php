@@ -14,7 +14,6 @@ class Medewerker extends Database {
         $klanten = $stmt->fetchAll();
         return $klanten;
     }
-
     /*
     # gets all medewerkers from the database to display in the table
     */
@@ -26,7 +25,6 @@ class Medewerker extends Database {
         $medewerkers = $stmt->fetchAll();
         return $medewerkers;
     }
-
     /*
     # insert a new klant into the database
     */
@@ -47,21 +45,21 @@ class Medewerker extends Database {
         $stmt->execute([$id['id']]);
     }
 
+    /*
+    # Delete functionality to delete a klant from the database
+    */
     public function deleteKlantFromPersoon($id) {
         $db = $this->connect();
         $sql = "SELECT persoons_id from klant where id = ?;";
         $stmt = $db->prepare($sql);
         $stmt->execute([$id]);
         $klant_id = $stmt->fetch();
-        $this->deleteKlant($klant_id['id']);
+        $sql = "DELETE FROM persoon WHERE id = ?";
+        $stmt = $db->prepare($sql);
+        $stmt->execute([$klant_id['persoons_id']]);
+
     }
 
-    public function deleteKlant($id) {
-        $db = $this->connect();
-        $sql = "DELETE FROM klant WHERE id = ?";
-        $stmt = $db->prepare($sql);
-        $stmt->execute([$id]);
-    }
 
 
 
