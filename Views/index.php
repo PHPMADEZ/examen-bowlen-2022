@@ -579,21 +579,50 @@
                 </tr>
               </thead>
               <tbody>
+              <?php
 
 
-                <tr>
-                  <td>
+$admin = new MedewerkerController();
+$admin->getLogs();
+foreach($admin->getLogs() as $logs ) {
+  
+?>
+
+<tr>
+<td>
+  <div class="d-flex px-2 py-1">
+    <div>
+      <?php
+          echo $logs['id'];
+        ?>
+    </div>
+    <div class="d-flex flex-column justify-content-center">
+      <h6 class="mb-0 text-sm">
+        <?php echo $logs['log'];  ?>
+      </h6>
+      
+    </div>
+  </div>
+</td>
+
+<td>
+<p class="mb-0 text-sm">
+        <?php echo $logs['action']; ?>
+      </p>
+</td>
+
+<td class="align-middle text-center text-sm">
+  <span class="badge badge-sm bg-gradient-success">
+    <?php echo $logs['time'] ;?>
+  </span>
+
+</td>
 
 
-                  </td>
-                  <td>
 
 
-                  </td>
 
-                  <td>
-
-                  </td>
+<?php }?>
 
 
               </tbody>
