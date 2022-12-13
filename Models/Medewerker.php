@@ -86,4 +86,26 @@ class Medewerker extends Database {
         $stmt->execute([$email, $adres, $telefoonnummer, $id]);
         
     }
+    /*
+    # insert a log when creating a new account
+    @param $log - the log
+    */
+    public function insertLog() {
+        $db = $this->connect();
+        $sql = "INSERT INTO logs (log, action, time) VALUES (?, ?, current_timestamp() )";
+        $stmt = $db->prepare($sql);
+        $stmt->execute(["medewerker 2", "created account"]);
+    }
+
+    /*
+    # get all logs from logs table
+    */
+    public function getLogs() {
+        $db = $this->connect();
+        $sql = "SELECT * from logs";
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+        $logs = $stmt->fetchAll();
+        return $logs;
+    }
 }
