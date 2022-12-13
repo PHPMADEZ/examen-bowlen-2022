@@ -8,7 +8,7 @@ class Medewerker extends Database {
     */
     public function getAllKlanten() {
         $db = $this->connect();
-        $sql = "SELECT * from persoon inner join klant on persoon.id = klant.persoons_id";
+        $sql = "SELECT * from persoon inner join klant on persoon.id = klant.persoons_id inner join contact on persoon.id = contact.persoons_id;";
         $stmt = $db->prepare($sql);
         $stmt->execute();
         $klanten = $stmt->fetchAll();
@@ -28,7 +28,7 @@ class Medewerker extends Database {
     /*
     # insert a new klant into the database
     */
-    public function insertKlant($voornaam, $achternaam, $geboortedatum, $adres, $email, $telefoonnummer) {
+    protected function insertKlant($voornaam, $achternaam, $geboortedatum, $adres, $email, $telefoonnummer) {
         $db = $this->connect();
         $sql = "INSERT INTO persoon (voornaam, achternaam, geboortedatum) VALUES (?, ?, ?)";
         $stmt = $db->prepare($sql);
@@ -45,10 +45,19 @@ class Medewerker extends Database {
         $stmt->execute([$id['id']]);
     }
 
+    public function getUserID($id) {
+        $db = $this->connect();
+        $sql = "SELECT persoons_id from klant where id = ?;";
+        $stmt = $db->prepare($sql);
+        $stmt->execute([$id]);
+        $klant_id = $stmt->fetch();
+        return $klant_id['persoons_id'];
+    }
+
     /*
     # Delete functionality to delete a klant from the database
     */
-    public function deleteKlantFromPersoon($id) {
+    protected function deleteKlantFromPersoon($id) {
         $db = $this->connect();
         $sql = "SELECT persoons_id from klant where id = ?;";
         $stmt = $db->prepare($sql);
@@ -59,6 +68,23 @@ class Medewerker extends Database {
         $stmt->execute([$klant_id['persoons_id']]);
 
     }
+
+    //update klant information
+    public function updateKlant($id, $voornaam, $achternaam, $adres, $email, $telefoonnummer) {
+        $db = $this->connect();
+        $sql = "UPDATE persoon SET voornaam = ?, achternaam = ? WHERE id = ?";
+        $stmt = $db->prepare($sql);
+        $stmt->execute([$voornaam, $achternaam, $geboortedatum, $id]);
+        $sql = "UPDATE contact SET email = ?, adres = ?, telefoonnummer = ? WHERE persoons_id = ?";
+        $stmt = $db->prepare($sql);
+        $stmt->execute([$email, $adres, $telefoonnummer, $id]);
+        
+    }
+
+
+
+
+
 
 
 
