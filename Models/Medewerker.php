@@ -32,13 +32,16 @@ class Medewerker extends Database {
         $sql = "INSERT INTO persoon (voornaam, achternaam, geboortedatum) VALUES (?, ?, ?)";
         $stmt = $db->prepare($sql);
         $stmt->execute([$voornaam, $achternaam, $geboortedatum]);
+
         $sql = "SELECT id from persoon where voornaam = ? and achternaam = ? and geboortedatum = ?";
         $stmt = $db->prepare($sql);
         $stmt->execute([$voornaam, $achternaam, $geboortedatum]);
         $id = $stmt->fetch();
+
         $sql = "INSERT INTO contact (email, adres, telefoonnummer, persoons_id) VALUES (?, ?, ?, ?)";
         $stmt = $db->prepare($sql);
         $stmt->execute([$email, $adres, $telefoonnummer, $id['id']]);
+        
         $sql = "INSERT INTO klant (persoons_id, datumaangemeld) VALUES (?, current_timestamp())";
         $stmt = $db->prepare($sql);
         $stmt->execute([$id['id']]);
