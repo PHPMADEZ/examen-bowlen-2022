@@ -21,7 +21,7 @@ class Reserveringen extends Controller
          * uit de database
          */
         $reserveringen = $this->reserveringModel->getReserveringen();
-       // var_dump($reserveringen);
+        var_dump($reserveringen);
         /**
          * Maak de inhoud voor de tbody in de view
          */
