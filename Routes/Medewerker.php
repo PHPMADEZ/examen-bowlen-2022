@@ -17,9 +17,8 @@ if (isset($_POST['insertKlant']))
     $telefoonnummer = $_POST['telefoonnummer'];
     $email = $_POST['email'];
     $adres = $_POST['adres'];
-
-
     $nieuweklant->addKlant($voornaam, $achternaam, $geboortedatum, $adres,  $email, $telefoonnummer);
+    $nieuweklant->insertLog();
 
     header("location: /views/index.php?=klantToegevoegd");
 }
