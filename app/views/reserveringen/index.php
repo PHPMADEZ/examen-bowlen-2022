@@ -2,7 +2,7 @@
   require APPROOT . '/views/includes/header.php';
   echo $data["title"]; 
 ?>
-<a href="<?=URLROOT;?>/countries/create">Nieuw record</a>
+<a href="<?=URLROOT;?>/reserveringen/create">Nieuw record</a>
 <table class = "table table-striped">
   <thead>
     <th>Voornaam</th>
