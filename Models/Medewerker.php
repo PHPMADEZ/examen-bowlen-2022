@@ -1,7 +1,6 @@
 <?php
 
 class Medewerker extends Database {
-
     /*
     # gets all the users from the database
     $ return $users - the list of users
@@ -44,7 +43,10 @@ class Medewerker extends Database {
         $stmt = $db->prepare($sql);
         $stmt->execute([$id['id']]);
     }
-
+    /*
+    #Returns userid from klant id
+    @ Absolute id -> absolute id <- | <- klant id <- | <- persoons id
+    */
     public function getUserID($id) {
         $db = $this->connect();
         $sql = "SELECT persoons_id from klant where id = ?;";
@@ -53,7 +55,6 @@ class Medewerker extends Database {
         $klant_id = $stmt->fetch();
         return $klant_id['persoons_id'];
     }
-
     /*
     # Delete functionality to delete a klant from the database
     */
@@ -68,38 +69,18 @@ class Medewerker extends Database {
         $stmt->execute([$klant_id['persoons_id']]);
 
     }
-
-    //update klant information
+    /*
+    # Update functionality to update a klant from the database
+    @param $id - the id of the klant
+    */
     public function updateKlant($id, $voornaam, $achternaam, $adres, $email, $telefoonnummer) {
         $db = $this->connect();
         $sql = "UPDATE persoon SET voornaam = ?, achternaam = ? WHERE id = ?";
         $stmt = $db->prepare($sql);
-        $stmt->execute([$voornaam, $achternaam, $geboortedatum, $id]);
+        $stmt->execute([$voornaam, $achternaam, $id]);
         $sql = "UPDATE contact SET email = ?, adres = ?, telefoonnummer = ? WHERE persoons_id = ?";
         $stmt = $db->prepare($sql);
         $stmt->execute([$email, $adres, $telefoonnummer, $id]);
         
     }
-
-
-
-
-
-
-
-
-
-
 }
-
-    
-
-
-
-   
-
-
-
-
-
-    
