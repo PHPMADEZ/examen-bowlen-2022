@@ -1,13 +1,13 @@
 <?php
 
 define('DB_HOST', 'localhost');
-define('DB_USER', '');
+define('DB_USER', 'root');
 define('DB_PASS', '');
-define('DB_NAME', '');
+define('DB_NAME', 'kerntaakexamenv3');
 
 define('APPROOT', dirname(dirname(__FILE__))) ;
 
-define('URLROOT', '');
+define('URLROOT', 'http://www.kerntaakexamenbowlen.nl');
 
-define('SITENAME', '');
+define('SITENAME', 'Kerntaakexamen Bowlen');
 ?>

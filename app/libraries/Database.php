@@ -1,7 +1,7 @@
 <?php
   namespace TDD\libraries;
 
-  require 'C:/Users/berka/Downloads/mvc-framework (2)/mvc-framework/app/config/config.php';
+  require 'C:/Users/berka/Documents/proefexamen/mvc-framework/examen-bowlen-2022/app/config/config.php';
 
   use \PDO;
 
