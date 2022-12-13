@@ -4,7 +4,6 @@ include "../Models/Medewerker.php";
 include "../Controller/Medewerker.php";
 
 
-
 if (isset($_POST['insertKlant']))
 {
     
@@ -32,11 +31,33 @@ if (isset($_POST['deleteKlant']))
 {
     $klant = new MedewerkerController();
     $id = $_GET['id'];
-    $klant->deleteKlantFromPersoon($id);
+    $klant->verwijderKlant($id);
     header("location: /views/index.php?=klantVerwijderd");
 }
 else {
     echo "Er is iets fout gegaan";
 }
+
+// edit klant
+if (isset($_POST['updateKlant']))
+{
+    $klant = new MedewerkerController();
+    $kid = $_GET['id'];
+
+    $klant->getUserID($kid);
+    $kid = $klant->getUserID($kid);
+    $voornaam = $_POST['voornaam'];
+    $achternaam= $_POST['achternaam'];
+    $telefoonnummer = $_POST['telefoonnummer'];
+    $email = $_POST['email'];
+    $adres = $_POST['adres'];
+
+    header("location: /views/index.php?=klantAangepast");
+}
+else {
+    echo "Er is iets fout gegaan";
+}
+
+
 
 
