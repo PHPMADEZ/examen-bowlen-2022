@@ -186,7 +186,8 @@
                 <div class="modal-footer">
 
 
-                  <button class="btn btn-primary m-3" name="insertKlant">Submit</button>
+                  <button class="btn btn-primary m-3 alert alert-primary" name="insertKlant" role="alert">Submit</button>
+
 
 
                 </div>
@@ -210,10 +211,15 @@
           <thead>
             <tr>
               <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Klant</th>
-
+              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">email</th>
+              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">telefoonnummer</th>
               <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">datum
                 aangemeld
               </th>
+              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">actions
+                
+              </th>
+
               <th class="text-secondary opacity-7"></th>
             </tr>
           </thead>
@@ -241,9 +247,22 @@
                     <h6 class="mb-0 text-sm">
                       <?php echo $klanten['voornaam']; echo ' '; echo $klanten['achternaam']; ?>
                     </h6>
+                    
 
                   </div>
                 </div>
+              </td>
+
+              <td>
+                <p class="text-sm font-weight-bold mb-0">
+                  <?php echo $klanten['email']; ?>
+                </p>
+              </td>
+              
+              <td>
+              <p class="text-sm font-weight-bold mb-0">
+                  <?php echo $klanten['telefoonnummer']; ?>
+                </p>
               </td>
 
               <td class="align-middle text-center text-sm">
@@ -253,10 +272,11 @@
               </td>
               <td class="align-middle">
 
-
+         
                 <form action="../Routes/Medewerker.php?id=<?php echo $klanten['id']; ?>" method="POST">
                   <button  class="btn bg-gradient-primary" name="deleteKlant">Delete</button>
                 </form>
+    
 
 
               </td>
@@ -304,7 +324,7 @@
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
-                        <button  class="btn bg-gradient-primary" name="updateKlant">Submit</button>
+                      
                       </div>
                     </div>
                   </div>
@@ -354,6 +374,7 @@
                     <h6 class="mb-0 text-sm">
                       <?php echo $medewerkers['voornaam']; echo ' '; echo $medewerkers['achternaam']; ?>
                     </h6>
+                    
                     <p class="mb-0 text-sm">
                       <?php echo $medewerkers['email']; ?>
                     </p>
