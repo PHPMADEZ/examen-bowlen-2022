@@ -157,7 +157,7 @@ class Klanten extends Controller
 
         if (empty($data['Email'])) {
             $data['EmailError'] = 'U heeft nog geen e-mail ingevuld';
-            } elseif (!in_array($data['Email'], ['berkan@gmail.com','adam@gmail.com','mazin@gmail.com','moemin@hotmail.com','ryantje@hotmail.com'])) {
+            } elseif (!in_array($data['Email'], ['berkan@gmail.com','adam@gmail.com','mazin@gmail.com','moemin@hotmail.com','ryantje@hotmail.com', 'ryantje@gmail.com', 'berkan@hotmail.com', 'ryantje@hotmail.com,'])) {
                 $data['EmailError'] = 'U heeft een incorrect emailadres ingevuld';
                 }
         if (empty($data['IsVolwassen'])) {
