@@ -35,7 +35,7 @@ class Klanten extends Controller
                         <td>" . $value->EindTijd . "</td>
                         <td>" . $value->AantalVolwassen . "</td>
                         <td>" . $value->AantalKinderen . "</td>
-                        <td><a href='" . URLROOT . "/klanten/scores/$value->Id'>Opmerkingen</a></td>
+                        <td><a href='" . URLROOT . "/klanten/scores/$value->REID'>Scores</a></td>
                         </tr>";
         }
 
@@ -46,13 +46,16 @@ class Klanten extends Controller
         ];
         $this->view('klanten/index', $data);
     }
-    public function scores()
+
+    public function scores($Id)
     {
         /**
          * Haal via de method getSingleKlant() uit de model Klant de records op
          * uit de database
          */
-        $klanten = $this->klantModel->getScores();
+        $klanten = $this->klantModel->getScores($Id);
+
+
         /**
          * Maak de inhoud voor de tbody in de view
          */
@@ -60,10 +63,10 @@ class Klanten extends Controller
     
         foreach ($klanten as $value){
             $rows .= "<tr>
-                        <td>" . $value->Voornaam . "</td>
-                        <td>" . $value->Tussenvoegsel . "</td>
-                        <td>" . $value->Achternaam . "</td>
-                        <td>" . $value->Aantalpunten . "</td>
+                        <td>" . $value->PEVO. "</td>
+                        <td>" . $value->PETU . "</td>
+                        <td>" . $value->PEAC . "</td>
+                        <td>" . $value->UIAA . "</td>
                         <td>" . $value->Datum . "</td>
                         </tr>";
         }
