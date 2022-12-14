@@ -13,6 +13,6 @@
     
     <!-- Homebrewed CSS -->
     <link rel="stylesheet" href="<?= URLROOT; ?>/public/css/style.css">
-    <title>Reserveringspagina</title>
+    <title>Klantenpagina</title>
   </head>
   <body>
