@@ -11,7 +11,7 @@ class Database {
 
             $username = "root";
             $password = "";
-            $db = new PDO('mysql:host=localhost;dbname=examen-2022', $username, $password);
+            $db = new PDO('mysql:host=localhost;dbname=examen-2022-reservering', $username, $password);
             return $db;
         } 
         catch (PDOException $e) {
