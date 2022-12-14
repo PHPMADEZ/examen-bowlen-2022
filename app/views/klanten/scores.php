@@ -4,13 +4,11 @@
 ?>
 <table class = "table table-striped">
   <thead>
-    <th>Naam</th>
+    <th>Voornaam</th>
+    <th>Tussenvoegsel</th>
+    <th>Achternaam</th>
+    <th>Aantalpunten</th>
     <th>Datum</th>
-    <th>Aantal Uur</th>
-    <th>Begintijd</th>
-    <th>Eindtijd</th>
-    <th>Aantal volwassenen</th>
-    <th>Aantal kinderen</th>
   </thead>
   <tbody>
     <?=$data['scores']?>
