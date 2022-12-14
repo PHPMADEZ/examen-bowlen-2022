@@ -39,8 +39,7 @@
                         ON persoon.Id = uitslag.SpelId 
                         INNER JOIN reservering 
                         ON persoon.Id = reservering.PersoonId 
-                        WHERE persoon.Id = 4
-                        ORDER BY Datum ASC;");
+                        ORDER BY AantalPunten ASC;");
       $result = $this->db->resultSet();
       return $result;
     }

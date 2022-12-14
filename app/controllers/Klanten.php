@@ -61,12 +61,10 @@ class Klanten extends Controller
         foreach ($klanten as $value){
             $rows .= "<tr>
                         <td>" . $value->Voornaam . "</td>
+                        <td>" . $value->Tussenvoegsel . "</td>
+                        <td>" . $value->Achternaam . "</td>
+                        <td>" . $value->Aantalpunten . "</td>
                         <td>" . $value->Datum . "</td>
-                        <td>" . $value->AantalUren . "</td>
-                        <td>" . $value->BeginTijd . "</td>
-                        <td>" . $value->EindTijd . "</td>
-                        <td>" . $value->AantalVolwassen . "</td>
-                        <td>" . $value->AantalKinderen . "</td>
                         </tr>";
         }
 
