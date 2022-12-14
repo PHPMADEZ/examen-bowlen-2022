@@ -48,7 +48,7 @@
                 </g>
               </svg>
             </div>
-            <span class="nav-link-text ms-1">Users</span>
+            <span class="nav-link-text ms-1">Spelers</span>
           </a>
         </li>
       </ul>
