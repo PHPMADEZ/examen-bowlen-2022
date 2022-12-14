@@ -11,8 +11,9 @@
     }
 
     public function getKlanten() {
-      $this->db->query("SELECT persoon.Id
+      $this->db->query("SELECT persoon.Id 
                               , persoon.Voornaam
+                              ,reservering.Id as REID
                               , reservering.Datum
                               , reservering.AantalUren
                               , reservering.BeginTijd
@@ -64,7 +65,7 @@
                         ON reservering.Id = spel.ReserveringId
 
                         WHERE spel.ReserveringId = $Id
-                        
+
                         ORDER BY AantalPunten ASC;");
       $result = $this->db->resultSet();
       return $result;
