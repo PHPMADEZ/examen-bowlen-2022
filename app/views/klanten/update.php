@@ -36,7 +36,7 @@
       <tr>
         <td>
          <label class= "form-label" for="Email">E-mail</label>
-         <input class="form-control" type="email" name="Email" id="Email" value="<?= $data["Email"]; ?>">
+         <input class="form-control" type="text" name="Email" id="Email" value="<?= $data["Email"]; ?>">
          <div class="errorForm"><?= $data['EmailError']; ?></div>
         </td>
       </tr>

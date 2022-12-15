@@ -157,7 +157,9 @@ class Klanten extends Controller
 
         if (empty($data['Email'])) {
             $data['EmailError'] = 'U heeft nog geen e-mail ingevuld';
-            }
+        } elseif (!filter_var($data['Email'], FILTER_VALIDATE_EMAIL)) {
+            $data['EmailError'] = 'Het e-mailadres is niet geldig';
+        }
         if (empty($data['IsVolwassen'])) {
             $data['IsVolwassenError'] = 'U heeft nog geen optie ingevuld';
             }
