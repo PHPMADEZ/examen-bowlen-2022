@@ -54,7 +54,7 @@
       </tr>
       <tr>
         <td>
-          <input class="btn btn-primary btn-lg" type="submit" value="Verzenden">
+          <input class="btn btn-primary btn-lg" type="submit" value="Wijzigen">
         </td>
       </tr>
     </tbody>
